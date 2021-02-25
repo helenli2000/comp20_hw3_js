@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Welcome to Joe's Hotdog Stand!</h1>
+    <p>You can order combinations of hot dogs for $3.25, french fries for $2.00, and drinks for $1.50.</p>
+    <p>* There is a 10% discount if you make at least $20 in purchases. *</p>
+    <script language="javascript">
+        hot_dogs = parseInt(prompt("How many orders of Hotdog would you like?"));
+        french_fries = parseInt(prompt("How many orders of French Fries would you like?"));
+        drinks = parseInt(prompt("How many drinks would you like?"));
+        
+        quantity = hot_dogs + french_fries + drinks;
+        
+        document.write('<div class="row">')
+        document.write('<div class="column">', "<h3>Order Summary</h3>")
+        document.write("Total Hot dogs Ordered: ", hot_dogs, "<br>", 
+        "Total French Fries Ordered: ",french_fries, "<br>", "Total Drinks Ordereed: ", drinks, "<br>");
+        document.write("Total Quantity Ordered: ", quantity, "<br>");
+        document.write('</div>')
+        subtotal = (hot_dogs*3.25) + (french_fries*2.00) + (drinks*1.50)
+        subtotal = subtotal.toFixed(2);
+    
+        if(subtotal>=20){
+            discount = (subtotal*0.1);
+        }
+        else{
+            discount = 0;
+        }
+        discount = discount.toFixed(2);
+    
+        tax = (subtotal - discount)*0.0625
+        tax = tax.toFixed(2);
+    
+        total = parseFloat(subtotal) - parseFloat(discount) + parseFloat(tax);
+        total = total.toFixed(2);
+    
+        document.write('<div class="column">', '<h3>Order Cost</h3>')
+        document.write("Subtotal: ", subtotal, "<br>");
+        document.write("Discount: -", discount, "<br>");
+        document.write("Tax (6.25%): ", tax, "<br>");
+        document.write("Total: ", total);
+        document.write('</div>')
+        document.write('</div>')
+    
+    </script>
+</body>
+</html>
+
+
