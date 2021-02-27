@@ -14,12 +14,13 @@
         
         quantity = hot_dogs + french_fries + drinks;
         
-        document.write('<div class="row">')
-        document.write('<div class="column">', "<h3>Order Summary</h3>")
-        document.write("Total Hot dogs Ordered: ", hot_dogs, "<br>", 
-        "Total French Fries Ordered: ",french_fries, "<br>", "Total Drinks Ordereed: ", drinks, "<br>");
-        document.write("Total Quantity Ordered: ", quantity, "<br>");
-        document.write('</div>')
+        cost_hot_dogs = hot_dogs * 3.25;
+        cost_hot_dogs = cost_hot_dogs.toFixed(2);
+        cost_french_fries = french_fries * 2.00;
+        cost_french_fries = cost_french_fries.toFixed(2);
+        cost_drinks = drinks * 1.50;
+        cost_drinks = cost_drinks.toFixed(2);
+
         subtotal = (hot_dogs*3.25) + (french_fries*2.00) + (drinks*1.50)
         subtotal = subtotal.toFixed(2);
     
@@ -37,11 +38,17 @@
         total = parseFloat(subtotal) - parseFloat(discount) + parseFloat(tax);
         total = total.toFixed(2);
     
+        document.write('<div class="row">')
+        document.write('<div class="column">', "<h3>Order Summary</h3>")
+        document.write(hot_dogs, " Hot dogs Ordered ", "<br>", 
+        french_fries, " French Fries Ordered ", "<br>", drinks, " Drinks Ordereed ", "<br>");
+        document.write(quantity, " Quantity Ordered ", "<br>");
+        document.write("<br>", "Subtotal", "<br>", "Discount (-)", "<br>", "Tax (+6.25%)", "<br>", "Total")
+        document.write('</div>')
         document.write('<div class="column">', '<h3>Order Cost</h3>')
-        document.write("Subtotal: ", subtotal, "<br>");
-        document.write("Discount: -", discount, "<br>");
-        document.write("Tax (6.25%): ", tax, "<br>");
-        document.write("Total: ", total);
+        document.write(cost_hot_dogs, "<br>", cost_french_fries, "<br>", cost_drinks, "<br>");
+        document.write("-----------------", "<br>", "<br>");
+        document.write(subtotal, "<br>", discount, "<br>", tax, "<br>", total);
         document.write('</div>')
         document.write('</div>')
     
